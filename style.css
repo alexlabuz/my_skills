@@ -1,0 +1,82 @@
+:root {
+    --red-color: #fad2e1;
+    --blue-color: #bee1e6;
+    --white-color: #f0efeb;
+    --black-color: #003049;
+}
+
+@font-face {
+    font-family: "Robik";
+    src: url("Rubik-VariableFont_wght.woff2");
+}
+
+html, body, .page_content{
+    height: 100%;
+}
+
+body{
+    margin: 0;
+    font-family: "Robik";
+    background-color: var(--white-color);
+    color: var(--black-color);
+}
+
+.page_content{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+@media(max-width: 600px){
+    .page_content{
+        justify-content: unset;
+    }
+}
+
+.box{
+    padding: 8px;
+    border-radius: 12px;
+    max-width: 800px;
+    width: 90%;
+    box-shadow: 5px 5px 5px rgb(0,0,0,0.3);
+}
+
+/* --- NAV BAR ---*/
+.navbar{background-color: var(--blue-color);}
+
+.row{display: flex;}
+
+.row .col{
+    display: flex;
+    align-items: center;
+}
+
+.row .col_empty{width: 14px;}
+
+.img_profil{
+    width: 100px;
+    border-radius: 12px;
+    box-shadow: 2px 2px 2px rgb(0,0,0,0.3);
+}
+
+/* --- COMPETENCES ---*/
+.competences{background-color: var(--red-color);}
+
+.competences h2, .competences p{margin: 12px;}
+
+.img_competence{
+    width: auto;
+    height: 60px;
+    margin: 8px;
+}
+
+.group_competences{
+    background-color: var(--white-color);
+    border-radius: 12px;
+    margin: 1em;
+    padding: 5px;
+    box-shadow: 2px 2px 2px rgb(0,0,0,0.3);
+}
+
+.group_competences h3{margin: 0;}
