@@ -4,61 +4,227 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Alex Labuz</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="page.css">
 </head>
 <body>
-    <div class="page_content">
-        <div class="navbar row box">
-            <div class="col">
-                <img src="images/profil_photo.jpg" class="img_profil">
+    <div id="list_page">
+        <div id="defilement_list">
+            <div class="page_content" id="profil_page">
+                <div class="profil">
+                    <div class="profil_title">
+                        <img src="images/profil_photo.jpg" alt="photo de profil"/>
+                        <h1>Alex Labuz</h1>
+                    </div>
+                    <hr>
+                    <h2>Développeur</h2>
+                    <p>23 ans | Vimy | Permis B</p>
+                    <a href="mailto:alex.labuz@live.fr" class="link_email"><p>alex.labuz@live.fr</p></a>
+
+                    <div class="bottom_profil">
+                        <div class="social_list">
+                            <a href="https://www.linkedin.com/in/alex-labuz/">
+                                <img src="svg/linkedin_logo.svg" alt="logo linkedin">
+                            </a>
+                            <a href="https://github.com/alexlabuz">
+                                <img src="svg/github_logo.svg" alt="logo github">
+                            </a>
+                        </div>
+                        <button class="mes_competence_page">Mes compétences</button>
+                    </div>
+                </div>
             </div>
-            <div class="col_empty"></div>
-            <div class="col">
-                <h1>Alex LABUZ</h1>
+        
+            <div class="page_content" id="competence_page">
+
+                <div class="list_bloc_competence">
+
+                    <div class="bloc_competence">
+                        <p class="title_bloc_competence">Mobile</p>
+                        <ul>
+                            <li>
+                                <div class="competence">
+                                    <img src="images/flutte.png" alt="flutter logo">
+                                    <p>Flutter</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="competence">
+                                    <img src="images/kotlin.png" alt="kotlin logo">
+                                    <p>Natif Kotlin</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="competence">
+                                    <img src="images/maui.png" alt="maui logo">
+                                    <p>.NET MAUI</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bloc_competence">
+                        <p class="title_bloc_competence">Web</p>
+                        <ul>
+                            <li>
+                                <div class="competence">
+                                    <img src="images/javascript.jpg" alt="flutter logo">
+                                    <p>JavaScript</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="competence">
+                                    <img src="images/typescript.png" alt="flutter logo">
+                                    <p>Typescript</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="competence">
+                                    <img src="images/vue.png" alt="flutter logo">
+                                    <p>Vue.js</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="competence">
+                                    <img src="images/bootstrap.png" alt="flutter logo">
+                                    <p>Bootstrap</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bloc_competence">
+                        <p class="title_bloc_competence">Backend</p>
+                        <ul>
+                            <li>
+                                <div class="competence">
+                                    <img src="images/php.png" alt="php logo">
+                                    <p>PHP</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="competence">
+                                    <img src="images/firebase.png" alt="firebase logo">
+                                    <p>Firebase</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="competence">
+                                    <img src="images/asp_net_core.png" alt="flutter logo">
+                                    <p>ASP.NET Core</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="competence">
+                                    <img src="images/node.png" alt="nodejs logo">
+                                    <p>Express.js</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bloc_competence">
+                        <p class="title_bloc_competence">Cloud</p>
+                        <ul>
+                            <li>
+                                <div class="competence">
+                                    <img src="images/heroku.png" alt="nodejs logo">
+                                    <p>Heroku</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="competence">
+                                    <img src="images/azure.png" alt="php logo">
+                                    <p>Azure</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="competence">
+                                    <img src="images/paas.png" alt="">
+                                    <p>PaaS</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bloc_competence">
+                        <p class="title_bloc_competence">Base de données</p>
+                        <ul>
+                            <li>
+                                <div class="competence">
+                                    <img src="images/firebase.png" alt="nodejs logo">
+                                    <p>NoSQL</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="competence">
+                                    <img src="images/mysql.png" alt="php logo">
+                                    <p>MySQL</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="competence">
+                                    <img src="images/sqlserver.png" alt="php logo">
+                                    <p>SQL Server</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bloc_competence">
+                        <p class="title_bloc_competence">DevOps</p>
+                        <ul>
+                            <li>
+                                <div class="competence">
+                                    <img src="images/azure_devops.png" alt="nodejs logo">
+                                    <p>Azure DevOps</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="competence">
+                                    <img src="images/github.png" alt="php logo">
+                                    <p>GitHub</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bloc_competence">
+                        <p class="title_bloc_competence">Language</p>
+                        <div class="list_langage">
+                            <p>JavaScript</p>
+                            <p>Typescript</p>
+                            <p>Dart</p>
+                            <p>Go</p>
+                            <p>C#</p>
+                            <p>C++</p>
+                            <p>Kotlin</p>
+                            <p>PHP</p>
+                            <p>Python</p>
+                        </div>
+                    </div>
+
+                </div>    
             </div>
-            <div class="col_empty"></div>
-            <div class="col">
-                <ul>
-                    <li>22 ans</li>
-                    <li>Vimy</li>
-                    <li>Développeur web / d'application</li>
-                </ul>
+            
+            <div class="page_content" id="plus_page">
+                <div class="cv">
+                    <h1>En savoir plus</h1>
+                    <button>
+                        <img src="svg/download.svg" alt="">
+                        Télécharger mon CV
+                    </button>
+                </div>
+                <p>Ce site est réalisé avec uniquement en HTML / CSS / JS. Pas de bootstrap ou autre librairies ou frameworks :p</p>
             </div>
 
         </div>
-        <div class="competences box">
-            <h2>Mes compétences</h2>
-            <div class="group_competences">
-                <h3>Backend</h3>
-                <div class="row">
-                    <img src="images/php-min.png" class="img_competence" title="PHP" alt="Logo PHP">
-                    <img src="images/symfony-min.png" class="img_competence" title="Symfony" alt="Logo Symfony">
-                    <img src="images/mysql.png" class="img_competence" title="MySQL" alt="Logo MySQL">
-                </div>
-            </div>
-            <div class="group_competences">
-                <h3>Frontend</h3>
-                <img src="images/flutte-min.png" class="img_competence" title="Flutter" alt="Logo Flutter">
-                <img src="images/html_css-min.png" class="img_competence" title="HTML & CSS" alt="Logo HTML et CSS">
-                <img src="images/bootstrap-min.png" class="img_competence" title="Bootstrap" alt="Logo Bootstrap">
-                <img src="images/android-min.jpg" class="img_competence" title="Android" alt="Logo Android">
-            </div>
-            <div class="group_competences">
-                <h3>Language</h3>
-                <img src="images/php-min.png" class="img_competence" title="PHP" alt="Logo PHP">
-                <img src="images/kotlin-min.png" class="img_competence" title="Kotlin" alt="Logo Kotlin">
-                <img src="images/java-min.png" class="img_competence" title="Java" alt="Logo Java">
-                <img src="images/dart-min.png" class="img_competence" title="Dart" alt="Logo Dart">
-                <img src="images/mysql.png" class="img_competence" title="MySQL" alt="Logo MySQL">
-                <img src="images/javascript-min.jpg" class="img_competence" title="JavaScript" alt="Logo JavaScript">
-            </div>
-            <div class="group_competences">
-                <h3>Autre</h3>
-                <img src="images/git-min.png" class="img_competence" title="Git" alt="Logo Git">
-                <img src="images/linux-min.png" class="img_competence" title="Linux" alt="Logo Linux">
-            </div>
-            <p>Survolez un logo pour afficher le nom ...</p>
-        </div>
     </div>
+    <div id="bottom_bar">
+        <p class="home_page">A propo de moi</p>
+        <p class="mes_competence_page">Mes compétences</p>
+        <p style="display: none;" class="plus_page">En savoir plus</p>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

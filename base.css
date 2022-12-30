@@ -1,0 +1,98 @@
+:root {
+    --primary-color: #FCD5CE;
+    --secondary-color: #FAE1DD;
+    --background-color: #ffffff;
+    --foreground-color: #473b39;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-color: #415A77;
+        --secondary-color: #1B263B;
+        --background-color: #0D1B2A;
+        --foreground-color: #E0E1DD;
+    }
+}
+
+@font-face {
+    font-family: "Robik";
+    src: url("Rubik-VariableFont_wght.woff2");
+}
+
+html{overflow: hidden;}
+
+html, body{height: 100%;}
+
+body{
+    margin: 0;
+    font-family: "Robik";
+    background-color: var(--background-color);
+    color: var(--foreground-color);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    animation-name: startAnimation;
+    animation-duration: 1s;
+}
+
+@keyframes startAnimation {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+
+/* --- LIST PAGE --- */
+
+#list_page{
+    flex-grow: 1;
+    overflow: hidden;
+    height: 100%;
+}
+
+#defilement_list{
+    position: relative;
+    display: flex;
+    width: 300%;
+    height: 100%;
+    top:0;
+    left: 0;
+    transition:0.4s;
+    transition-timing-function: ease;
+}
+
+.page_content{
+    width: 100%;
+    height: 100%;
+}
+
+/* --- BOTTOM PAGE --- */
+
+#bottom_bar{
+    background-color: var(--secondary-color);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 60px;
+    overflow: hidden;
+}
+
+#bottom_bar p {
+    cursor: pointer;
+    margin: 0;
+    transition: 0.4s;
+    padding: 5px;
+}
+
+#bottom_bar p.active{
+    font-weight: bold;
+    filter: saturate(3);
+    padding-bottom: 1em;
+}
+
+/* Override element style */
+hr{
+    background-color: var(--foreground-color);
+    height: 1px;
+    border: none;
+}
