@@ -1,8 +1,8 @@
 User-agent: GoogleBot
-Disallow:
+Disallow: /
 
 User-agent: Bingbot
-Disallow:
+Disallow: /
 
 User-agent: ia_archiver
 Disallow: /
