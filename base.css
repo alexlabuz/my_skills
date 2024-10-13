@@ -1,16 +1,22 @@
 :root {
-    --primary-color: #FCD5CE;
-    --secondary-color: #FAE1DD;
+    --primary-color: #6a91e7;
+    --secondary-color: #bacdf7;
     --background-color: #ffffff;
-    --foreground-color: #473b39;
+    --foreground-color: #2b2c33;
+
+    --gradient-color-competence: linear-gradient(90deg, #ebc19f, #ecac77);
+    --gradient-color-project: linear-gradient(90deg, #a9e0ad, #50d697);
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --primary-color: #415A77;
-        --secondary-color: #1B263B;
-        --background-color: #0D1B2A;
+        --primary-color: #173064;
+        --secondary-color: #4a5b83;
+        --background-color: #0c141b;
         --foreground-color: #E0E1DD;
+        
+        --gradient-color-competence: linear-gradient(90deg, #7c6654, #694c34);
+        --gradient-color-project: linear-gradient(90deg, #608062, #286d4d);
     }
 }
 
@@ -19,21 +25,16 @@
     src: url("Rubik-VariableFont_wght.woff2");
 }
 
-html{overflow: hidden;}
-
-html, body{height: 100%;}
-
 body{
     margin: 0;
     font-family: "Robik";
     background-color: var(--background-color);
     color: var(--foreground-color);
-    overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    animation-name: startAnimation;
-    animation-duration: 1s;
+    align-items: center;
+    margin-bottom: 2em;
+    animation: startAnimation 1s;
 }
 
 @keyframes startAnimation {
@@ -41,58 +42,45 @@ body{
     to{opacity: 1;}
 }
 
-/* --- LIST PAGE --- */
-
-#list_page{
-    flex-grow: 1;
-    overflow: hidden;
-    height: 100%;
-}
-
-#defilement_list{
-    position: relative;
-    display: flex;
-    width: 300%;
-    height: 100%;
-    top:0;
-    left: 0;
-    transition:0.4s;
-    transition-timing-function: ease;
-}
-
-.page_content{
-    width: 100%;
-    height: 100%;
-}
-
-/* --- BOTTOM PAGE --- */
-
-#bottom_bar{
-    background-color: var(--secondary-color);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 60px;
-    overflow: hidden;
-}
-
-#bottom_bar p {
-    cursor: pointer;
-    margin: 0;
-    transition: 0.4s;
-    padding: 5px;
-}
-
-#bottom_bar p.active{
-    font-weight: bold;
-    filter: saturate(3);
-    padding-bottom: 1em;
+.main_section{
+    height: 100vh;
+    text-align: left;
 }
 
 /* Override element style */
+
+h2{
+    margin: 2em 0px 2em 0;
+}
+
 hr{
     background-color: var(--foreground-color);
     height: 1px;
     border: none;
+}
+
+/* Other */
+
+.up_scroll{
+    position: fixed;
+    background-color: var(--foreground-color);
+    bottom: 1em;
+    right: 1em;
+    padding: 7px;
+    border-radius: 8px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.up_scroll img{
+    width: 30px;
+    filter: brightness(15);
+}
+
+@media (prefers-color-scheme: dark) {
+    .up_scroll img{
+        filter: none;
+    }
 }

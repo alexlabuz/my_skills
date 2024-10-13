@@ -1,38 +1,14 @@
-var defilementList = document.querySelector("#defilement_list")
+var scrollBtn = document.getElementById("id_scroll");
+var upScrollBtn = document.getElementById("up_scroll_btn");
 
-document.querySelector('.home_page').addEventListener("click", () => {
-    window.location.hash = "#home";
-})
-
-document.querySelectorAll(".mes_competence_page").forEach(element => {
-    element.addEventListener("click", () => { 
-        window.location.hash = "#my_competence";
-    })
+scrollBtn.addEventListener("click", function () {
+    window.scrollTo({top: window.innerHeight, behavior: "smooth"});
 });
 
-document.querySelector(".plus_page").addEventListener("click", () => {
-    window.location.hash = "#plus"
-})
+upScrollBtn.addEventListener("click", function () {
+    window.scrollTo({top: 0, behavior: "smooth"});
+});
 
-function changePageByHash() {
-    document.querySelector("#bottom_bar .home_page").classList.remove("active")
-    document.querySelector("#bottom_bar .mes_competence_page").classList.remove("active")
-    document.querySelector("#bottom_bar .plus_page").classList.remove("active")
-    switch (window.location.hash) {
-        case "#home":
-        case "":
-            defilementList.style.left = "0"
-            document.querySelector("#bottom_bar .home_page").classList.add("active")
-            break;
-        case "#my_competence":
-            defilementList.style.left = "-100%"
-            document.querySelector("#bottom_bar .mes_competence_page").classList.add("active")
-            break;
-        case '#plus':
-            defilementList.style.left = "-200%"
-            document.querySelector("#bottom_bar .plus_page").classList.add("active")
-    }
-}
-
-window.addEventListener("hashchange", () => changePageByHash())
-changePageByHash()
+window.addEventListener("scroll", function () {
+    upScrollBtn.style.right = (window.scrollY > 90) ? "1em" : "-44px";
+});
