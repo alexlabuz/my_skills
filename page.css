@@ -24,6 +24,7 @@
     width: 82%;
     border-radius: 1em;
     padding: 1em;
+    box-shadow: 3px 3px 4px gray;
 }
 
 .bloc h3{
@@ -73,6 +74,7 @@
     max-width: 750px;
     width: 82%;
     box-shadow: 6px 6px 8px gray;
+    margin-bottom: 2em;
 }
 
 .profil_title{
@@ -123,7 +125,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-    .profil{
+    .profil, .bloc{
         box-shadow: 0 0 0;
     }
     .social_list img, .scroll_indication img{
