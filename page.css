@@ -24,7 +24,6 @@
     width: 82%;
     border-radius: 1em;
     padding: 1em;
-    box-shadow: 3px 3px 4px gray;
 }
 
 .bloc h3{
@@ -73,7 +72,6 @@
     border-radius: 1em;
     max-width: 750px;
     width: 82%;
-    box-shadow: 6px 6px 8px gray;
     margin-bottom: 2em;
 }
 
