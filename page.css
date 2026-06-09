@@ -1,4 +1,7 @@
 /* --- background --- */
+.diploma_background .bloc{
+    background: var(--gradient-color-diploma);
+}
 
 .competence_background .bloc{
     background: var(--gradient-color-competence);
