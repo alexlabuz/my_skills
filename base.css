@@ -4,6 +4,7 @@
     --background-color: #ffffff;
     --foreground-color: #2b2c33;
 
+    --gradient-color-diploma: linear-gradient(90deg, #9fc6eb, #77aaec);
     --gradient-color-competence: linear-gradient(90deg, #ebc19f, #ecac77);
     --gradient-color-project: linear-gradient(90deg, #a9e0ad, #50d697);
 }
@@ -15,6 +16,7 @@
         --background-color: #0c141b;
         --foreground-color: #E0E1DD;
         
+        --gradient-color-diploma: linear-gradient(90deg, #9fc6eb, #77aaec);
         --gradient-color-competence: linear-gradient(90deg, #7c6654, #694c34);
         --gradient-color-project: linear-gradient(90deg, #608062, #286d4d);
     }
