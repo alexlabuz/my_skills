@@ -82,8 +82,8 @@ a { color: inherit; }
 
 .photo {
   flex: 0 0 auto;
-  width: clamp(150px, 18vw, 190px);
-  height: clamp(150px, 18vw, 190px);
+  width: clamp(150px, 18vw, 180px);
+  height: clamp(150px, 18vw, 180px);
   border-radius: 50%;
   object-fit: cover;
 }
@@ -385,7 +385,7 @@ a { color: inherit; }
 }
 
 .up_scroll.closed{
-  right: -44px;
+  right: -45px;
 }
 
 .up_scroll img{
