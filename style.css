@@ -375,8 +375,8 @@ a { color: inherit; }
 .up_scroll{
     position: fixed;
     background: var(--violet);
-    bottom: .5em;
-    right: .5em;
+    bottom: .8em;
+    right: .8em;
     padding: 5px;
     border-radius: 8px;
     cursor: pointer;
