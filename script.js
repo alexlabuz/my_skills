@@ -1,14 +1,14 @@
-var scrollBtn = document.getElementById("id_scroll");
+// Année automatique dans le footer
+document.getElementById('annee').textContent = new Date().getFullYear();
+
+// Gère le bouton pour revenir en hait de la page
 var upScrollBtn = document.getElementById("up_scroll_btn");
 
-scrollBtn.addEventListener("click", function () {
-    window.scrollTo({top: window.innerHeight, behavior: "smooth"});
-});
-
 upScrollBtn.addEventListener("click", function () {
-    window.scrollTo({top: 0, behavior: "smooth"});
+    window.scrollTo({top: 0});
 });
 
 window.addEventListener("scroll", function () {
-    upScrollBtn.style.right = (window.scrollY > 90) ? "1em" : "-44px";
+    const btnClass = upScrollBtn.classList;
+    (window.scrollY > 90) ? btnClass.remove("closed") : btnClass.add("closed");
 });
