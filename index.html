@@ -1,201 +1,322 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Alex Labuz</title>
-    <link rel="stylesheet" href="base.css">
-    <link rel="stylesheet" href="page.css">
-    <link rel="icon" type="image/png" href="person.png" />
-    <script defer src="https://umami.alexlabuz.fr/start.js" data-website-id="38d39261-a992-4c1c-b9b9-ffb3fb99ac56"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Indique au navigateur que la page gère le clair ET le sombre -->
+  <meta name="color-scheme" content="light dark">
+
+  <title>Alex Labuz</title>
+  <meta name="description" content="Portfolio d'Alex Labuz, développeur Full-Stack : Vue.js, Node.js, .NET, MuleSoft.">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="person.png" />
+  <script src="script.js" defer></script>
+  <script defer src="https://umami.alexlabuz.fr/start.js" data-website-id="38d39261-a992-4c1c-b9b9-ffb3fb99ac56"></script>
 </head>
+
 <body>
     <div class="up_scroll" id="up_scroll_btn" style="right: -44px;">
         <img src="svg/up-arrow-19.svg" alt="">
     </div>
 
-    <div class="main_section">
-        <div class="profil">
-            <div class="profil_title">
-                <img src="images/profil_photo.jpg" alt="photo de profil"/>
-                <h1>Alex Labuz</h1>
-            </div>
-            <hr class="line_profil">
-            <p style="font-size: 22px; font-weight: bold;">Développeur applicatif</p>
-            <p>27 ans | Arras | Permis B</p>
-            <a class="link_email" href="mailto:alex.lbz@outlook.fr"><p>alex.lbz@outlook.fr</p></a>
+  <!-- =====================================================================
+       COMMENT MODIFIER CE FICHIER ?
+       - Chaque section est délimitée par un grand commentaire.
+       - Pour changer un texte : modifie-le directement.
+       - Pour ajouter un élément (expérience, projet, formation, compétence) :
+         copie un bloc existant et colle-le juste à côté.
+       - Pour ajouter une image : remplace le bloc <div class="placeholder">
+         par <img src="images/mon-image.jpg" alt="Description">
+       ===================================================================== -->
 
-            <div class="social_list">
-                <a href="https://www.linkedin.com/in/alex-labuz/">
-                    <img src="svg/linkedin_logo.svg" alt="logo linkedin">
-                </a>
-                <a href="https://github.com/alexlabuz">
-                    <img src="svg/github_logo.svg" alt="logo github">
-                </a>
-            </div>
-        </div>
-        
-        <div class="scroll_indication" id="id_scroll">
-            <p>Scroll pour en savoir plus ...</p>
-            <img src="svg/down-arrow-56.svg" alt=""/>
-        </div>
-    </div>
-<!--
-    <h2>Mes compétences</h2>
-    <div class="list_bloc competence_background">
 
-        <div class="bloc">
-            <h3>Mobile</h3>
-            <div class="list_competence">
-                <div class="competence">
-                    <img src="images/flutte.png" alt="flutter logo" class="bloc_img">
-                    <p>Flutter</p>
-                </div>
-                <div class="competence">
-                    <img src="images/kotlin.png" alt="kotlin logo" class="bloc_img">
-                    <p>Natif Kotlin</p>
-                </div>
-                <div class="competence">
-                    <img src="images/maui.png" alt="maui logo" class="bloc_img">
-                    <p>.NET MAUI</p>
-                </div>
-            </div>
-        </div>
+  <!-- =====================================================================
+       1. HERO (écran d'accueil en plein écran)
+       ===================================================================== -->
+  <header class="hero" id="accueil">
+    <div class="hero__content">
 
-        <div class="bloc">
-            <h3>Web</h3>
-            <div class="list_competence">
-                <div class="competence">
-                    <img src="images/javascript.jpg" alt="javascript logo" class="bloc_img">
-                    <p>JavaScript</p>
-                </div>
-                <div class="competence">
-                    <img src="images/typescript.png" alt="typescript logo" class="bloc_img">
-                    <p>Typescript</p>
-                </div>
-                <div class="competence">
-                    <img src="images/vue.png" alt="vuejs logo" class="bloc_img">
-                    <p>Vue.js</p>
-                </div>
-                <div class="competence">
-                    <img src="images/bootstrap.png" alt="bootstrap logo" class="bloc_img">
-                    <p>Bootstrap</p>
-                </div>
-            </div>
-        </div>
+      <!-- IMAGE : ta photo de profil
+           Remplace le <div> par : <img class="hero__photo" src="images/photo.jpg" alt="Alex Labuz"> -->
+      <img class="hero__photo" src="./images/profil.webp" alt="Alex Labuz">
 
-        <div class="bloc">
-            <h3>Backend</h3>
-            <div class="list_competence">
-                <div class="competence">
-                    <img src="images/php.png" alt="php logo" class="bloc_img">
-                    <p>PHP</p>
-                </div>
-                <div class="competence">
-                    <img src="images/firebase.png" alt="firebase logo" class="bloc_img">
-                    <p>Firebase</p>
-                </div>
-                <div class="competence">
-                    <img src="images/asp_net_core.png" alt="aspnet core logo" class="bloc_img">
-                    <p>ASP.NET Core</p>
-                </div>
-                <div class="competence">
-                    <img src="images/node.png" alt="expressjs logo" class="bloc_img">
-                    <p>Express.js</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="bloc">
-            <h3>Cloud</h3>
-            <div class="list_competence">
-                <div class="competence">
-                    <img src="images/heroku.png" alt="heroku logo" class="bloc_img">
-                    <p>Heroku</p>
-                </div>
-                <div class="competence">
-                    <img src="images/azure.png" alt="azure logo" class="bloc_img">
-                    <p>Azure</p>
-                </div>
-                <div class="competence">
-                    <img src="images/paas.png" alt="" class="bloc_img">
-                    <p>PaaS</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="bloc">
-            <h3>Base de données</h3>
-            <div class="list_competence">
-                <div class="competence">
-                    <img src="images/firebase.png" alt="" class="bloc_img">
-                    <p>NoSQL</p>
-                </div>
-                <div class="competence">
-                    <img src="images/mysql.png" alt="mysql logo" class="bloc_img">
-                    <p>MySQL</p>
-                </div>
-                <div class="competence">
-                    <img src="images/sqlserver.png" alt="sql server logo" class="bloc_img">
-                    <p>SQL Server</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="bloc">
-            <h3>DevOps</h3>
-            <div class="list_competence">
-                <div class="competence">
-                    <img src="images/azure_devops.png" alt="azure devops logo" class="bloc_img">
-                    <p>Azure DevOps</p>
-                </div>
-                <div class="competence">
-                    <img src="images/github.png" alt="github logo" class="bloc_img">
-                    <p>GitHub</p>
-                </div>
-            </div>
-        </div>
+      <h1 class="hero__name">Alex <span class="accent">Labuz</span></h1>
+      <p class="hero__role">Développeur</p>
+      <p class="hero__city">Arras</p>
+
+      <!-- ACCÈS RAPIDES + CONTACT
+           Pour ajouter un lien : copie une ligne <li> et change l'adresse (href) et le texte.
+           Pour en supprimer un : supprime simplement la ligne. -->
+      <ul class="quick-links">
+        <li>
+          <a class="quick-link" href="https://github.com/alexlabuz" target="_blank" rel="noopener">
+            <span><img src="./svg/github_logo.svg" alt="logo github" /></span>
+            <span>GitHub</span>
+          </a>
+       </li>
+        <li>
+          <a class="quick-link" href="https://www.linkedin.com/in/alex-labuz/" target="_blank" rel="noopener">
+            <span><img src="./svg/linkedin_logo.svg" alt="logo github" /></span>
+            <span>LinkedIn</span>
+          </a>
+        </li>
+        <li><a class="quick-link" href="mailto:alex.lbz@outlook.fr">alex.lbz@outlook.fr</a></li>
+      </ul>
     </div>
 
-    <div class="list_bloc competence_background">
-        <div class="bloc language">
-            <h3>Languages</h3>
-            <div class="list_langage">
-                <p>JavaScript</p>
-                <p>Typescript</p>
-                <p>Dart</p>
-                <p>C#</p>
-                <p>PHP</p>
-                <p>Python</p>
-                <p>SQL</p>
-            </div>
-        </div>
-    </div>
--->
-    <h2>Mes projets</h2>
-    
-    <div class="list_bloc project_background">
+    <!-- Indication de scroll : cliquable, descend vers la section suivante -->
+    <a class="hero__scroll" href="#apropos">
+      <span>Faites défiler pour en savoir plus</span>
+      <span class="hero__arrow" aria-hidden="true">↓</span>
+    </a>
+  </header>
 
-        <div class="bloc">
-            <div class="title_project">
-                <img class="bloc_img" src="images/powerfour.png" alt="powerfour logo"/>
-                <h3>PowerFour</h3>
-            </div>
+
+  <!-- Barre de navigation (apparaît une fois le hero passé) -->
+  <nav class="nav" aria-label="Navigation principale">
+    <a class="nav__brand" href="#accueil">Alex Labuz</a>
+    <ul class="nav__links">
+      <li><a href="#apropos">À propos</a></li>
+      <li><a href="#experience">Expérience</a></li>
+      <li><a href="#competences">Compétences</a></li>
+      <li><a href="#formations">Formations</a></li>
+      <li><a href="#projets">Projets</a></li>
+    </ul>
+  </nav>
+
+
+  <main>
+
+    <!-- =====================================================================
+         2. À PROPOS
+         ===================================================================== -->
+    <section class="section" id="apropos">
+      <h2 class="section__title">À propos</h2>
+
+      <div class="about">
+        <div class="about__text">
+          <p>
+            Diplômé d'un titre EISI (Expert en Informatique et Systèmes d'Information),
+            je travaille depuis 5 ans chez Logista Hometech, où j'ai également effectué mon alternance.
+            Je fais évoluer les applicatifs internes selon les besoins métiers du secteur de l'habitat.
+          </p>
+          <p>
+            Aujourd'hui, je souhaite relever un nouveau défi professionnel afin de découvrir
+            d'autres domaines d'activités.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================================
+         3. EXPÉRIENCE PROFESSIONNELLE
+         Pour ajouter une expérience : copie un bloc <article class="timeline__item">
+         ===================================================================== -->
+    <section class="section section--alt" id="experience">
+      <h2 class="section__title">Expérience professionnelle</h2>
+
+      <div class="timeline">
+
+        <article class="timeline__item">
+          <p class="timeline__date">Depuis 2025</p>
+          <h3 class="timeline__title">Développeur MuleSoft</h3>
+          <p class="timeline__place">Logista Hometech</p>
+          <ul>
+            <li>Migration des flux de données de SSIS vers MuleSoft.</li>
+            <li>Création de flux pour connecter Salesforce à Sage X3, AWS, Talentsoft ou encore Sinch.</li>
+            <li>Participation à la mise en place du CI/CD avec notamment GitLab, Jenkins et SonarQube.</li>
+          </ul>
+        </article>
+
+        <article class="timeline__item">
+          <p class="timeline__date">2021 – 2025</p>
+          <h3 class="timeline__title">Développeur applicatif</h3>
+          <p class="timeline__place">Logista Hometech</p>
+          <ul>
+            <li>Maintien des services et applicatifs internes (WPF, C#, API REST).</li>
+            <li>Optimisation des applications de mobilité utilisées par les techniciens.</li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================================
+         4. COMPÉTENCES
+         Pour ajouter une catégorie : copie un bloc <div class="skill">
+         Pour ajouter une compétence : ajoute un <li> dans la liste
+         ===================================================================== -->
+    <section class="section" id="competences">
+      <h2 class="section__title">Compétences</h2>
+
+      <div class="skills">
+
+        <div class="skill">
+          <h3>Web</h3>
+          <ul class="tags">
+            <li>Vue.js</li><li>Nuxt</li><li>Tailwind</li>
+          </ul>
+        </div>
+
+        <div class="skill">
+          <h3>Backend</h3>
+          <ul class="tags">
+            <li>Node.js</li><li>Docker</li><li>REST API</li><li>.NET</li>
+          </ul>
+        </div>
+
+        <div class="skill">
+          <h3>Base de données</h3>
+          <ul class="tags">
+            <li>PostgreSQL</li><li>SQL Server</li><li>MongoDB</li>
+          </ul>
+        </div>
+
+        <div class="skill">
+          <h3>Mobile</h3>
+          <ul class="tags">
+            <li>Android</li><li>Kotlin</li><li>Flutter</li>
+          </ul>
+        </div>
+
+        <div class="skill">
+          <h3>ESB</h3>
+          <ul class="tags">
+            <li>MuleSoft</li><li>AnyPoint</li>
+          </ul>
+        </div>
+
+        <div class="skill">
+          <h3>Cloud</h3>
+          <ul class="tags">
+            <li>Azure</li><li>GCP</li><li>PaaS</li><li>OVH</li>
+          </ul>
+        </div>
+
+        <div class="skill">
+          <h3>DevOps</h3>
+          <ul class="tags">
+            <li>Jenkins</li><li>GitLab</li><li>Sonar</li>
+          </ul>
+        </div>
+
+        <div class="skill">
+          <h3>Scrum</h3>
+          <ul class="tags">
+            <li>Jira</li><li>Azure DevOps</li><li>Trello</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================================
+         5. FORMATIONS
+         ===================================================================== -->
+    <section class="section section--alt" id="formations">
+      <h2 class="section__title">Formations</h2>
+
+      <div class="timeline">
+
+        <article class="timeline__item">
+          <p class="timeline__date">2025</p>
+          <h3 class="timeline__title">Titre Expert informatique &amp; système d'information</h3>
+          <p class="timeline__place">EPSI – L'école d'ingénierie informatique</p>
+        </article>
+
+        <article class="timeline__item">
+          <p class="timeline__date">2022</p>
+          <h3 class="timeline__title">Titre Concepteur développeur d'application</h3>
+          <p class="timeline__place">EPSI – L'école d'ingénierie informatique</p>
+        </article>
+
+        <article class="timeline__item">
+          <p class="timeline__date">2021</p>
+          <h3 class="timeline__title">BTS Services informatiques aux organisations</h3>
+          <p class="timeline__place">Lycée Guy Mollet, Arras</p>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================================
+         6. PROJETS PERSONNELS
+         Pour ajouter un projet : copie un bloc <article class="project">
+         ===================================================================== -->
+    <section class="section" id="projets">
+      <h2 class="section__title">Projets personnels</h2>
+
+      <div class="projects">
+
+        <article class="project">
+          <div class="project__body">
+            <img class="project__image" src="./images/skyjoscore.png" alt="logo skyjo score">
+            <h3 class="project__title">Skyjo Score</h3>
+            <p>
+              Application de suivi des scores du jeu Skyjo avec synchronisation
+              en temps réel entre les joueurs (SSE).
+            </p>
+            <ul class="tags">
+              <li>PWA</li><li>TypeScript</li><li>Vue.js</li><li>SSE</li><li>Micro-service</li><li>Node.js</li>
+            </ul>
+            <!--<p class="project__note">En production : ~120 utilisateurs mensuels</p>-->
+            <a class="button" href="https://skyjoscore.allavi.fr/" target="_blank" rel="noopener">Voir le projet</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project__body">
+            <img class="project__image" src="./images/powerfour.png" alt="logo powerfour">
+            <h3 class="project__title">Powerfour</h3>
             <p>Jeu de puissance 4 en temps réel</p>
-            <a class="bloc_button" href="https://powerfour.alexlabuz.fr" target="_blank">Accèder au projet</a>
-        </div>
-    
-        
-        <div class="bloc">
-            <div class="title_project">
-                <img class="bloc_img" src="images/tetromino.png" alt="tetromino logo"/>
-                <h3>Tetromino</h3>
-            </div>
-            <p>Jeu de Tetris en ligne</p>
-            <a class="bloc_button" href="https://tetromino.alexlabuz.fr" target="_blank">Accèder au projet</a>
-        </div>
-    </div>
+            <ul class="tags">
+              <li>PWA</li><li>TypeScript</li><li>Vue.js</li><li>Firebase</li><li>Real-time database</li>
+            </ul>
+            <a class="button" href="https://powerfour.alexlabuz.fr/" target="_blank" rel="noopener">Voir le projet</a>
+          </div>
+        </article>
 
-    <script src="script.js"></script>
+        <article class="project">
+          <div class="project__body">
+            <img class="project__image" src="./images/tetromino.png" alt="logo tetromino">
+            <h3 class="project__title">Tetromino</h3>
+            <p>Jeu de Tetris en ligne</p>
+            <ul class="tags">
+              <li>PWA</li><li>TypeScript</li><li>Vue.js</li><li>Firebase</li><li>Firestore</li>
+            </ul>
+            <a class="button" href="https://tetromino.alexlabuz.fr/" target="_blank" rel="noopener">Voir le projet</a>
+          </div>
+        </article>
+        
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         7. CENTRES D'INTÉRÊT
+         ===================================================================== -->
+    <section class="section section--alt" id="interets">
+      <h2 class="section__title">Centres d'intérêt</h2>
+      <ul class="tags tags--large">
+        <li>🎹 Piano</li>
+        <li>🎭 Théâtre</li>
+        <li>🧗 Escalade</li>
+      </ul>
+    </section>
+
+
+  </main>
+
+
+  <footer class="footer">
+    <p>© <span id="year">2026</span> Alex Labuz</p>
+  </footer>
+
 </body>
 </html>

@@ -1,0 +1,418 @@
+/* ==========================================================================
+   STYLE DU PORTFOLIO
+   Sommaire :
+   1. Variables (couleurs, polices, espacements)  <-- à modifier en priorité
+   2. Mode sombre (automatique)
+   3. Base
+   4. Hero (plein écran)
+   5. Navigation
+   6. Sections
+   7. Composants (à propos, timeline, compétences, projets, contact)
+   8. Placeholders d'images
+   9. Responsive
+   ========================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   1. VARIABLES — change ici les couleurs et les polices de tout le site
+   -------------------------------------------------------------------------- */
+:root {
+  /* Couleurs (mode clair) */
+  --color-bg:        #ffffff;
+  --color-bg-alt:    #f4f6fa;   /* fond des sections alternées */
+  --color-surface:   #ffffff;   /* fond des cartes */
+  --color-text:      #1c2230;
+  --color-muted:     #5d667a;
+  --color-accent:    #3b6cf6;   /* couleur principale */
+  --color-border:    #dde2ec;
+  --color-placeholder: #e6eaf2;
+
+  /* Typographie */
+  --font-main: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  /* Mise en page */
+  --max-width: 960px;
+  --radius: 12px;
+  --nav-height: 60px;
+}
+
+
+/* --------------------------------------------------------------------------
+   2. MODE SOMBRE — activé automatiquement selon les réglages de l'appareil
+   On ne redéfinit que les variables : tout le reste s'adapte tout seul.
+   -------------------------------------------------------------------------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg:        #0f131b;
+    --color-bg-alt:    #151a24;
+    --color-surface:   #1b2130;
+    --color-text:      #e8ecf4;
+    --color-muted:     #9aa4b8;
+    --color-accent:    #7b9bff;
+    --color-border:    #2a3245;
+    --color-placeholder: #232a3b;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   3. BASE
+   -------------------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-height);   /* évite que la nav cache les titres */
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+h1, h2, h3 { line-height: 1.2; margin: 0; }
+p { margin: 0 0 1rem; }
+ul { margin: 0; padding: 0; }
+a { color: var(--color-accent); }
+
+.accent { color: var(--color-accent); }
+
+
+/* --------------------------------------------------------------------------
+   4. HERO — présentation en plein écran
+   -------------------------------------------------------------------------- */
+.hero {
+  min-height: 100vh;
+  min-height: 100svh;               /* hauteur réelle sur mobile */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 1.5rem 5rem;
+  position: relative;
+}
+
+/* Photo de profil ronde en haut du hero */
+.hero__photo {
+  width: clamp(140px, 22vw, 180px);
+  aspect-ratio: 1 / 1;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  padding: 0;
+}
+img.hero__photo {
+  display: block;
+  object-fit: cover;
+  border: 3px solid var(--color-accent);
+}
+
+/* Accès rapides + contact (GitHub, LinkedIn, email...) */
+.quick-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .6rem;
+  list-style: none;
+  margin-top: 1.75rem;
+}
+.quick-link {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: .45rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: .95rem;
+  transition: border-color .2s, color .2s;
+}
+.quick-link:hover { border-color: var(--color-accent); color: var(--color-accent); }
+
+.quick-link span{
+  display: inline-flex;
+}
+.quick-link img{
+    height: 18px;
+    filter: brightness(0);
+}
+
+@media (prefers-color-scheme: dark) {
+  .quick-link img{
+    filter: brightness(15);
+  }
+}
+
+.hero__name    { font-size: clamp(3rem, 10vw, 6.5rem); font-weight: 800; letter-spacing: -0.02em; }
+.hero__role    { font-size: clamp(1.2rem, 3vw, 1.8rem); font-weight: 600; margin-top: .75rem; }
+.hero__city    { font-size: clamp(1rem, 1vw, 1.2rem); font-weight: 500; margin-top: .7rem; }
+
+/* Texte "Faites défiler" en bas de l'écran */
+.hero__scroll {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .25rem;
+  color: var(--color-muted);
+  text-decoration: none;
+  font-size: .9rem;
+  white-space: nowrap;
+}
+.hero__scroll:hover { color: var(--color-accent); }
+
+.hero__arrow {
+  font-size: 1.5rem;
+  animation: bounce 1.8s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(8px); }
+}
+
+
+/* --------------------------------------------------------------------------
+   5. NAVIGATION — fixe en haut, visible après le hero (voir script.js)
+   -------------------------------------------------------------------------- */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  background: color-mix(in srgb, var(--color-bg) 85%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
+  z-index: 10;
+
+  /* cachée par défaut */
+  transform: translateY(-100%);
+  transition: transform .3s ease;
+}
+.nav.is-visible { transform: translateY(0); }
+
+.nav__brand {
+  font-weight: 800;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.nav__links {
+  display: flex;
+  gap: 1.25rem;
+  list-style: none;
+}
+.nav__links a {
+  color: var(--color-muted);
+  text-decoration: none;
+  font-size: .95rem;
+}
+.nav__links a:hover { color: var(--color-accent); }
+
+
+/* --------------------------------------------------------------------------
+   6. SECTIONS
+   -------------------------------------------------------------------------- */
+.section {
+  padding: 5rem 1.5rem;
+}
+.section > * {
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+.section--alt { background: var(--color-bg-alt); }
+
+.section__title {
+  font-size: clamp(1.7rem, 4vw, 2.3rem);
+  margin-bottom: 2rem;
+}
+.section__title::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 4px;
+  margin-top: .6rem;
+  background: var(--color-accent);
+  border-radius: 2px;
+}
+
+
+/* --------------------------------------------------------------------------
+   7. COMPOSANTS
+   -------------------------------------------------------------------------- */
+
+/* --- À propos --- */
+.about {
+  max-width: 720px;
+}
+
+/* --- Timeline (expérience + formations) --- */
+.timeline {
+  border-left: 2px solid var(--color-border);
+  padding-left: 1.75rem;
+}
+.timeline__item {
+  position: relative;
+  margin-bottom: 2.25rem;
+}
+.timeline__item:last-child { margin-bottom: 0; }
+.timeline__item::before {            /* le point sur la ligne */
+  content: "";
+  position: absolute;
+  left: calc(-1.75rem - 7px);
+  top: .45rem;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  border: 2px solid var(--color-bg);
+}
+.section--alt .timeline__item::before { border-color: var(--color-bg-alt); }
+
+.timeline__date  { color: var(--color-accent); font-weight: 600; font-size: .9rem; margin-bottom: .2rem; }
+.timeline__title { font-size: 1.2rem; }
+.timeline__place { color: var(--color-muted); margin: .15rem 0 .5rem; }
+.timeline__item ul { padding-left: 1.2rem; }
+.timeline__item li { margin-bottom: .3rem; }
+
+/* --- Tags (petites pastilles) --- */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  list-style: none;
+}
+.tags li {
+  padding: .25rem .75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  font-size: .9rem;
+  background: var(--color-bg);
+}
+.tags--large li { font-size: 1.05rem; padding: .5rem 1.1rem; background: var(--color-surface); }
+
+/* --- Compétences --- */
+.skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+.skill {
+  padding: 1.25rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+.skill h3 { font-size: 1.05rem; margin-bottom: .75rem; }
+
+/* --- Projets --- */
+/* Les projets s'affichent en grille : 3 colonnes sur grand écran,
+   2 sur tablette, 1 sur mobile (ajuste 260px pour changer la largeur mini d'une carte) */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+.project {
+  display: flex;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.project__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 1.1rem;
+}
+.project__title { font-size: 1.15rem; margin-bottom: .35rem; }
+.project__body p { font-size: .92rem; margin-bottom: .75rem; }
+.project__note  { color: var(--color-muted); font-size: .85rem; margin: .75rem 0 0; }
+
+/* Petite icône à gauche du titre au lieu d'un bloc au-dessus */
+.project__image {
+  width: 40px;
+  aspect-ratio: 1 / 1;
+  margin: 0 0 .6rem;
+  border-radius: .6rem;
+}
+img.project__image{object-fit: cover;}
+
+/* Les tags restent compacts, et le bouton se cale en bas de la carte */
+.project .tags { gap: .35rem; margin-bottom: 1rem; }
+.project .tags li { font-size: .78rem; padding: .15rem .55rem; }
+.project .button { margin-top: auto; }
+
+/* Bouton (optionnel, pour les liens de projets) */
+.button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: .4rem .9rem;
+  font-size: .9rem;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* --- Footer --- */
+.footer {
+  padding: 2rem 1.5rem;
+  text-align: center;
+  color: var(--color-muted);
+  font-size: .9rem;
+  border-top: 1px solid var(--color-border);
+}
+.footer p { margin: 0; }
+
+
+/* --------------------------------------------------------------------------
+   9. RESPONSIVE (tablette / mobile)
+   -------------------------------------------------------------------------- */
+@media (max-width: 720px) {
+  .nav__links { display: none; }       /* menu masqué sur mobile pour rester simple */
+  .nav        { justify-content: center; }
+
+  .section { padding: 3.5rem 1.25rem; }
+
+  .project { grid-template-columns: 1fr; }
+}
+
+.up_scroll{
+    position: fixed;
+    background-color: var(--color-accent);
+    bottom: 1em;
+    right: 1em;
+    padding: 9px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.5s;
+    display: flex;
+    z-index: 1;
+}
+
+.up_scroll img{
+    width: 20px;
+    filter: invert(1);
+}
+
+@media (prefers-color-scheme: dark) {
+    .up_scroll img{
+        filter: none;
+    }
+}
