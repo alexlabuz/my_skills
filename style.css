@@ -1,418 +1,394 @@
-/* ==========================================================================
-   STYLE DU PORTFOLIO
-   Sommaire :
-   1. Variables (couleurs, polices, espacements)  <-- à modifier en priorité
-   2. Mode sombre (automatique)
-   3. Base
-   4. Hero (plein écran)
-   5. Navigation
-   6. Sections
-   7. Composants (à propos, timeline, compétences, projets, contact)
-   8. Placeholders d'images
-   9. Responsive
-   ========================================================================== */
+/* =========================================================
+   Portfolio – Alex Labuz
+   Pour changer l'apparence : modifie les variables ci-dessous.
+   ========================================================= */
 
-
-/* --------------------------------------------------------------------------
-   1. VARIABLES — change ici les couleurs et les polices de tout le site
-   -------------------------------------------------------------------------- */
+/* ---------- Thème clair (par défaut) ---------- */
 :root {
-  /* Couleurs (mode clair) */
-  --color-bg:        #ffffff;
-  --color-bg-alt:    #f4f6fa;   /* fond des sections alternées */
-  --color-surface:   #ffffff;   /* fond des cartes */
-  --color-text:      #1c2230;
-  --color-muted:     #5d667a;
-  --color-accent:    #3b6cf6;   /* couleur principale */
-  --color-border:    #dde2ec;
-  --color-placeholder: #e6eaf2;
+  --bg: #f6f7fb;
+  --surface: #ffffff;
+  --text: #14161f;
+  --muted: #5b6173;
+  --border: #e2e5ee;
 
-  /* Typographie */
-  --font-main: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  /* Dégradés des grandes cartes */
+  --violet: linear-gradient(135deg, #6a4cff, #a24bff);
+  --bleu:   linear-gradient(135deg, #1f6bff, #19b5ff);
+  --rose:   linear-gradient(135deg, #ff4b8b, #ff7a59);
+  --vert:   linear-gradient(135deg, #0aa37f, #35d07f);
+  --orange: linear-gradient(135deg, #eb8221, #e0ad35);
 
-  /* Mise en page */
-  --max-width: 960px;
-  --radius: 12px;
-  --nav-height: 60px;
+  --radius: 28px;
+  --max: 1040px;
+  --gutter: 24px;       /* marge latérale de la page */
 }
 
-
-/* --------------------------------------------------------------------------
-   2. MODE SOMBRE — activé automatiquement selon les réglages de l'appareil
-   On ne redéfinit que les variables : tout le reste s'adapte tout seul.
-   -------------------------------------------------------------------------- */
+/* ---------- Thème sombre automatique (réglage de l'appareil) ---------- */
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-bg:        #0f131b;
-    --color-bg-alt:    #151a24;
-    --color-surface:   #1b2130;
-    --color-text:      #e8ecf4;
-    --color-muted:     #9aa4b8;
-    --color-accent:    #7b9bff;
-    --color-border:    #2a3245;
-    --color-placeholder: #232a3b;
+    --bg: #0e1016;
+    --surface: #171a23;
+    --text: #f1f3f9;
+    --muted: #a0a7ba;
+    --border: #262a37;
+
+    --violet: linear-gradient(135deg, #5339d6, #8a3bd9);
+    --bleu:   linear-gradient(135deg, #1650c9, #1190c4);
+    --rose:   linear-gradient(135deg, #cc3a6f, #cc5f45);
+    --vert:   linear-gradient(135deg, #08806a, #26a263);
+    --orange: linear-gradient(135deg, #cc6f17, #cc9b26);
   }
 }
 
-
-/* --------------------------------------------------------------------------
-   3. BASE
-   -------------------------------------------------------------------------- */
+/* ---------- Base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: var(--nav-height);   /* évite que la nav cache les titres */
-}
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  font-family: var(--font-main);
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   line-height: 1.6;
-  color: var(--color-text);
-  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3 { line-height: 1.2; margin: 0; }
-p { margin: 0 0 1rem; }
-ul { margin: 0; padding: 0; }
-a { color: var(--color-accent); }
+h1, h2, h3, p, ul { margin: 0; }
+ul { padding: 0; list-style: none; }
+a { color: inherit; }
 
-.accent { color: var(--color-accent); }
-
-
-/* --------------------------------------------------------------------------
-   4. HERO — présentation en plein écran
-   -------------------------------------------------------------------------- */
+/* ---------- Hero plein écran ---------- */
 .hero {
   min-height: 100vh;
-  min-height: 100svh;               /* hauteur réelle sur mobile */
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 2rem 1.5rem 5rem;
-  position: relative;
+  padding: 48px var(--gutter) 24px;
 }
 
-/* Photo de profil ronde en haut du hero */
-.hero__photo {
-  width: clamp(140px, 22vw, 180px);
-  aspect-ratio: 1 / 1;
-  margin: 0 auto 1.5rem;
-  border-radius: 50%;
-  padding: 0;
+/* PC : photo à gauche, texte à droite */
+.hero-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(32px, 6vw, 72px);
+  width: 100%;
+  max-width: var(--max);
 }
-img.hero__photo {
-  display: block;
+
+.photo {
+  flex: 0 0 auto;
+  width: clamp(150px, 18vw, 190px);
+  height: clamp(150px, 18vw, 190px);
+  border-radius: 50%;
   object-fit: cover;
-  border: 3px solid var(--color-accent);
 }
 
-/* Accès rapides + contact (GitHub, LinkedIn, email...) */
-.quick-links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: .6rem;
-  list-style: none;
-  margin-top: 1.75rem;
-}
-.quick-link {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  padding: .45rem 1rem;
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
-  background: var(--color-surface);
-  color: var(--color-text);
-  text-decoration: none;
-  font-size: .95rem;
-  transition: border-color .2s, color .2s;
-}
-.quick-link:hover { border-color: var(--color-accent); color: var(--color-accent); }
-
-.quick-link span{
-  display: inline-flex;
-}
-.quick-link img{
-    height: 18px;
-    filter: brightness(0);
-}
-
-@media (prefers-color-scheme: dark) {
-  .quick-link img{
-    filter: brightness(15);
-  }
-}
-
-.hero__name    { font-size: clamp(3rem, 10vw, 6.5rem); font-weight: 800; letter-spacing: -0.02em; }
-.hero__role    { font-size: clamp(1.2rem, 3vw, 1.8rem); font-weight: 600; margin-top: .75rem; }
-.hero__city    { font-size: clamp(1rem, 1vw, 1.2rem); font-weight: 500; margin-top: .7rem; }
-
-/* Texte "Faites défiler" en bas de l'écran */
-.hero__scroll {
-  position: absolute;
-  bottom: 1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: .25rem;
-  color: var(--color-muted);
-  text-decoration: none;
-  font-size: .9rem;
-  white-space: nowrap;
-}
-.hero__scroll:hover { color: var(--color-accent); }
-
-.hero__arrow {
-  font-size: 1.5rem;
-  animation: bounce 1.8s ease-in-out infinite;
-}
-
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(8px); }
-}
-
-
-/* --------------------------------------------------------------------------
-   5. NAVIGATION — fixe en haut, visible après le hero (voir script.js)
-   -------------------------------------------------------------------------- */
-.nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  height: var(--nav-height);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 1.5rem;
-  background: color-mix(in srgb, var(--color-bg) 85%, transparent);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--color-border);
-  z-index: 10;
-
-  /* cachée par défaut */
-  transform: translateY(-100%);
-  transition: transform .3s ease;
-}
-.nav.is-visible { transform: translateY(0); }
-
-.nav__brand {
-  font-weight: 800;
-  font-size: 1.2rem;
-  text-decoration: none;
-  color: var(--color-text);
-}
-
-.nav__links {
-  display: flex;
-  gap: 1.25rem;
-  list-style: none;
-}
-.nav__links a {
-  color: var(--color-muted);
-  text-decoration: none;
-  font-size: .95rem;
-}
-.nav__links a:hover { color: var(--color-accent); }
-
-
-/* --------------------------------------------------------------------------
-   6. SECTIONS
-   -------------------------------------------------------------------------- */
-.section {
-  padding: 5rem 1.5rem;
-}
-.section > * {
-  max-width: var(--max-width);
-  margin-left: auto;
-  margin-right: auto;
-}
-.section--alt { background: var(--color-bg-alt); }
-
-.section__title {
-  font-size: clamp(1.7rem, 4vw, 2.3rem);
-  margin-bottom: 2rem;
-}
-.section__title::after {
-  content: "";
-  display: block;
-  width: 48px;
-  height: 4px;
-  margin-top: .6rem;
-  background: var(--color-accent);
-  border-radius: 2px;
-}
-
-
-/* --------------------------------------------------------------------------
-   7. COMPOSANTS
-   -------------------------------------------------------------------------- */
-
-/* --- À propos --- */
-.about {
-  max-width: 720px;
-}
-
-/* --- Timeline (expérience + formations) --- */
-.timeline {
-  border-left: 2px solid var(--color-border);
-  padding-left: 1.75rem;
-}
-.timeline__item {
-  position: relative;
-  margin-bottom: 2.25rem;
-}
-.timeline__item:last-child { margin-bottom: 0; }
-.timeline__item::before {            /* le point sur la ligne */
-  content: "";
-  position: absolute;
-  left: calc(-1.75rem - 7px);
-  top: .45rem;
-  width: 12px; height: 12px;
-  border-radius: 50%;
-  background: var(--color-accent);
-  border: 2px solid var(--color-bg);
-}
-.section--alt .timeline__item::before { border-color: var(--color-bg-alt); }
-
-.timeline__date  { color: var(--color-accent); font-weight: 600; font-size: .9rem; margin-bottom: .2rem; }
-.timeline__title { font-size: 1.2rem; }
-.timeline__place { color: var(--color-muted); margin: .15rem 0 .5rem; }
-.timeline__item ul { padding-left: 1.2rem; }
-.timeline__item li { margin-bottom: .3rem; }
-
-/* --- Tags (petites pastilles) --- */
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .5rem;
-  list-style: none;
-}
-.tags li {
-  padding: .25rem .75rem;
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
-  font-size: .9rem;
-  background: var(--color-bg);
-}
-.tags--large li { font-size: 1.05rem; padding: .5rem 1.1rem; background: var(--color-surface); }
-
-/* --- Compétences --- */
-.skills {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1.25rem;
-}
-.skill {
-  padding: 1.25rem;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-}
-.skill h3 { font-size: 1.05rem; margin-bottom: .75rem; }
-
-/* --- Projets --- */
-/* Les projets s'affichent en grille : 3 colonnes sur grand écran,
-   2 sur tablette, 1 sur mobile (ajuste 260px pour changer la largeur mini d'une carte) */
-.projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1rem;
-}
-.project {
-  display: flex;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.project__body {
+.hero-text {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 100%;
-  padding: 1.1rem;
+  gap: 14px;
+  text-align: left;
+  min-width: 0;
 }
-.project__title { font-size: 1.15rem; margin-bottom: .35rem; }
-.project__body p { font-size: .92rem; margin-bottom: .75rem; }
-.project__note  { color: var(--color-muted); font-size: .85rem; margin: .75rem 0 0; }
 
-/* Petite icône à gauche du titre au lieu d'un bloc au-dessus */
-.project__image {
-  width: 40px;
-  aspect-ratio: 1 / 1;
-  margin: 0 0 .6rem;
-  border-radius: .6rem;
+.eyebrow {
+  color: var(--muted);
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-size: .85rem;
 }
-img.project__image{object-fit: cover;}
 
-/* Les tags restent compacts, et le bouton se cale en bas de la carte */
-.project .tags { gap: .35rem; margin-bottom: 1rem; }
-.project .tags li { font-size: .78rem; padding: .15rem .55rem; }
-.project .button { margin-top: auto; }
+.hero h1 {
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  line-height: 1;
+  letter-spacing: -.03em;
+}
+.hero h1 span {
+  background: var(--violet);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 
-/* Bouton (optionnel, pour les liens de projets) */
-.button {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: .4rem .9rem;
-  font-size: .9rem;
-  background: var(--color-accent);
-  color: var(--color-bg);
-  border-radius: 8px;
+/* Liens de contact (icône facultative) */
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+.contact li {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: .95rem;
+}
+.contact a,
+.contact li > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
   text-decoration: none;
+}
+.contact a:hover { color: var(--muted); }
+
+.ico {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  object-fit: contain;
+}
+
+/* Icônes noires : passent en blanc en mode sombre (ico-color pour l'éviter) */
+@media (prefers-color-scheme: dark) {
+  .ico { filter: invert(1); }
+  .ico.ico-color { filter: none; }
+}
+
+.scroll {
+  margin-top: 24px;
+  padding: 12px 8px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 1.1rem;
+  text-align: center;
+}
+.scroll:hover { filter: brightness(0); }
+
+@media (prefers-color-scheme: dark) {
+  .scroll:hover { filter: brightness(2); }
+}
+
+/* Flèche qui rebondit pour inviter à scroller */
+.scroll .arrow {
+  animation: rebond 2s ease-in-out infinite;
+  width: 30px;
+}
+
+@keyframes rebond {
+    0%, 50%, 100% {transform: translateY(0);}
+    75%  {transform: translateY(1rem);}
+}
+
+/* ---------- Sections ---------- */
+.section {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 72px var(--gutter) 0;
+}
+.section > h2 {
+  font-size: clamp(1.7rem, 4vw, 2.3rem);
+  letter-spacing: -.02em;
+  margin-bottom: 24px;
+}
+
+/* ---------- Grandes cartes colorées ---------- */
+.card {
+  --card-bg: var(--violet);
+  background: var(--card-bg);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: clamp(24px, 5vw, 48px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.card h3 { font-size: 1.5rem; letter-spacing: -.01em; }
+.card p  { font-size: 1.05rem; max-width: 62ch; }
+.card .meta { opacity: .85; font-weight: 600; margin-top: -10px; }
+.card ul { display: grid; gap: 10px; }
+.card li { padding-left: 1.2em; position: relative; }
+.card li::before { content: "•"; position: absolute; left: 0; }
+
+/* Conteneur de cartes : les couleurs tournent automatiquement */
+.cards {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+}
+.cards > .card:nth-child(5n+1) { --card-bg: var(--violet); }
+.cards > .card:nth-child(5n+2) { --card-bg: var(--bleu); }
+.cards > .card:nth-child(5n+3) { --card-bg: var(--rose); }
+.cards > .card:nth-child(5n+4) { --card-bg: var(--vert); }
+.cards > .card:nth-child(5n+5) { --card-bg: var(--orange); }
+
+/* Couleur forcée (facultatif) : ajouter c-violet, c-bleu... sur une carte */
+.card.c-violet, .cards > .card.c-violet { --card-bg: var(--violet); }
+.card.c-bleu,   .cards > .card.c-bleu   { --card-bg: var(--bleu); }
+.card.c-rose,   .cards > .card.c-rose   { --card-bg: var(--rose); }
+.card.c-vert,   .cards > .card.c-vert   { --card-bg: var(--vert); }
+.card.c-orange, .cards > .card.c-orange { --card-bg: var(--orange); }
+
+.tag {
+  background: rgba(255, 255, 255, .22);
+  border-radius: 999px;
+  padding: 4px 14px;
+  font-size: .85rem;
   font-weight: 600;
 }
 
-/* --- Footer --- */
+/* ---------- Projets : cartes compactes, plusieurs par ligne ---------- */
+.projects {
+  /* auto-fill : la largeur d'une carte reste constante, même s'il n'y en a qu'une */
+  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+}
+.project {
+  padding: 24px;
+  gap: 12px;
+  border-radius: 24px;
+}
+.project-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.project h3 { font-size: 1.25rem; }
+.project p  { font-size: .98rem; }
+.project .stack { opacity: .85; font-size: .88rem; }
+.project .btn { margin-top: auto; padding: 10px 22px; font-size: .95rem; }
+
+/* Icône de projet */
+.icon {
+  width: 52px;
+  height: 52px;
+  flex: 0 0 auto;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+/* ---------- Boutons blancs arrondis ---------- */
+.btn {
+  display: inline-block;
+  background: #fff;
+  color: #14161f;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 12px 28px;
+  transition: transform .15s ease, opacity .15s ease;
+}
+.btn:hover { transform: translateY(-2px); opacity: .92; }
+
+/* ---------- Compétences ---------- */
+.skills {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+}
+.skill {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 20px 22px;
+}
+.skill h3 { font-size: 1rem; margin-bottom: 12px; }
+
+/* Tags arrondis et transparents (technos) */
+.tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tags li {
+  background: rgba(127, 127, 127, .14);
+  border: 1px solid rgba(127, 127, 127, .25);
+  border-radius: 999px;
+  padding: 3px 12px;
+  font-size: .88rem;
+  line-height: 1.5;
+}
+
+/* ---------- Formations ---------- */
+.timeline { display: grid; gap: 14px; }
+.timeline li {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 18px 24px;
+}
+.year {
+  font-weight: 800;
+  font-size: 1.3rem;
+  min-width: 3.4em;
+  background: var(--violet);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.timeline h3 { font-size: 1.05rem; }
+.timeline p { color: var(--muted); font-size: .95rem; }
+
+/* ---------- Centres d'intérêt ---------- */
+.chips { display: flex; flex-wrap: wrap; gap: 12px; }
+.chips li {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 10px 24px;
+  font-weight: 600;
+}
+
+/* ---------- Pied de page ---------- */
 .footer {
-  padding: 2rem 1.5rem;
   text-align: center;
-  color: var(--color-muted);
+  color: var(--muted);
   font-size: .9rem;
-  border-top: 1px solid var(--color-border);
+  padding: 64px var(--gutter) 40px;
 }
-.footer p { margin: 0; }
 
+/* ---------- Mobile ---------- */
+@media (max-width: 760px) {
+  :root { --gutter: 14px; }   /* bords réduits, sans toucher l'écran */
 
-/* --------------------------------------------------------------------------
-   9. RESPONSIVE (tablette / mobile)
-   -------------------------------------------------------------------------- */
-@media (max-width: 720px) {
-  .nav__links { display: none; }       /* menu masqué sur mobile pour rester simple */
-  .nav        { justify-content: center; }
+  .hero { padding-top: 32px; }
+  .hero-inner {
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+  }
+  .photo { width: 140px; height: 140px; }
+  .hero-text { align-items: center; text-align: center; }
+  .contact { justify-content: center; }
 
-  .section { padding: 3.5rem 1.25rem; }
-
-  .project { grid-template-columns: 1fr; }
+  .section { padding-top: 56px; }
+  .card { padding: 22px; border-radius: 24px; }
+  .timeline li { padding: 16px 18px; gap: 14px; }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn { transition: none; }
+  .scroll .arrow { animation: none; }
+}
+
+/* ---------- Up scroll button ---------- */
 
 .up_scroll{
     position: fixed;
-    background-color: var(--color-accent);
-    bottom: 1em;
-    right: 1em;
-    padding: 9px;
+    background: var(--violet);
+    bottom: .5em;
+    right: .5em;
+    padding: 5px;
     border-radius: 8px;
     cursor: pointer;
     transition: 0.5s;
     display: flex;
-    z-index: 1;
+}
+
+.up_scroll.closed{
+  right: -44px;
 }
 
 .up_scroll img{
-    width: 20px;
+    width: 30px;
     filter: invert(1);
-}
-
-@media (prefers-color-scheme: dark) {
-    .up_scroll img{
-        filter: none;
-    }
 }

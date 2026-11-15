@@ -3,320 +3,236 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Indique au navigateur que la page gère le clair ET le sombre -->
   <meta name="color-scheme" content="light dark">
-
   <title>Alex Labuz</title>
   <meta name="description" content="Portfolio d'Alex Labuz, développeur Full-Stack : Vue.js, Node.js, .NET, MuleSoft.">
-
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="person.png" />
-  <script src="script.js" defer></script>
   <script defer src="https://umami.alexlabuz.fr/start.js" data-website-id="38d39261-a992-4c1c-b9b9-ffb3fb99ac56"></script>
 </head>
-
 <body>
-    <div class="up_scroll" id="up_scroll_btn" style="right: -44px;">
-        <img src="svg/up-arrow-19.svg" alt="">
-    </div>
+  <div class="up_scroll closed" id="up_scroll_btn">
+      <img src="svg/up-arrow.svg" alt="">
+  </div>
 
-  <!-- =====================================================================
-       COMMENT MODIFIER CE FICHIER ?
-       - Chaque section est délimitée par un grand commentaire.
-       - Pour changer un texte : modifie-le directement.
-       - Pour ajouter un élément (expérience, projet, formation, compétence) :
-         copie un bloc existant et colle-le juste à côté.
-       - Pour ajouter une image : remplace le bloc <div class="placeholder">
-         par <img src="images/mon-image.jpg" alt="Description">
-       ===================================================================== -->
+  <!--
+    ============================================================
+    COMMENT AJOUTER DU CONTENU ?
+    Chaque section ci-dessous contient un bloc « modèle » : il suffit
+    de le copier-coller à la suite d'un bloc existant et de changer le texte.
+    Aucune modification du CSS n'est nécessaire.
+    Les cartes colorées changent automatiquement de couleur.
+    (Option : ajouter c-violet, c-bleu, c-rose, c-vert ou c-orange
+     sur une carte pour forcer sa couleur.)
+    ============================================================
+  -->
 
-
-  <!-- =====================================================================
-       1. HERO (écran d'accueil en plein écran)
-       ===================================================================== -->
+  <!-- ============ HERO (plein écran) ============ -->
   <header class="hero" id="accueil">
-    <div class="hero__content">
+    <div class="hero-inner">
+      <img class="photo" src="./images/profil.webp" alt="Alex Labuz">
 
-      <!-- IMAGE : ta photo de profil
-           Remplace le <div> par : <img class="hero__photo" src="images/photo.jpg" alt="Alex Labuz"> -->
-      <img class="hero__photo" src="./images/profil.webp" alt="Alex Labuz">
+      <div class="hero-text">
+        <p class="eyebrow">Développeur</p>
+        <h1>Alex <span>Labuz</span></h1>
 
-      <h1 class="hero__name">Alex <span class="accent">Labuz</span></h1>
-      <p class="hero__role">Développeur</p>
-      <p class="hero__city">Arras</p>
-
-      <!-- ACCÈS RAPIDES + CONTACT
-           Pour ajouter un lien : copie une ligne <li> et change l'adresse (href) et le texte.
-           Pour en supprimer un : supprime simplement la ligne. -->
-      <ul class="quick-links">
-        <li>
-          <a class="quick-link" href="https://github.com/alexlabuz" target="_blank" rel="noopener">
-            <span><img src="./svg/github_logo.svg" alt="logo github" /></span>
-            <span>GitHub</span>
-          </a>
-       </li>
-        <li>
-          <a class="quick-link" href="https://www.linkedin.com/in/alex-labuz/" target="_blank" rel="noopener">
-            <span><img src="./svg/linkedin_logo.svg" alt="logo github" /></span>
-            <span>LinkedIn</span>
-          </a>
-        </li>
-        <li><a class="quick-link" href="mailto:alex.lbz@outlook.fr">alex.lbz@outlook.fr</a></li>
-      </ul>
+        <!--
+          Liens de contact : copie un <li> pour en ajouter un.
+          - Sans icône : <li><a href="...">Texte</a></li>
+          - Avec icône : ajoute <img class="ico" src="./svg/xxx.svg" alt=""> avant le texte.
+            Les icônes noires passent automatiquement en blanc en mode sombre.
+            Pour une icône en couleur, ajoute aussi la classe ico-color :
+            <img class="ico ico-color" ...>
+        -->
+        <ul class="contact">
+          <li><a href="mailto:alex.lbz@outlook.fr" data-umami-event="click" data-umami-event-type="email">alex.lbz@outlook.fr</a></li>
+          <li><span>Arras (62)</span></li>
+          <li>
+            <a href="https://github.com/alexlabuz" target="_blank" rel="noopener" data-umami-event="click" data-umami-event-type="github">
+              <img class="ico" src="./svg/github_logo.svg" alt="">
+              Github
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/alex-labuz/" target="_blank" rel="noopener" data-umami-event="click" data-umami-event-type="linkedin">
+              <img class="ico" src="./svg/linkedin_logo.svg" alt="">
+              Linkedin
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
 
-    <!-- Indication de scroll : cliquable, descend vers la section suivante -->
-    <a class="hero__scroll" href="#apropos">
-      <span>Faites défiler pour en savoir plus</span>
-      <span class="hero__arrow" aria-hidden="true">↓</span>
+    <a class="scroll" href="#a-propos">
+      <p>Parcourir le site</p> 
+      <img class="arrow" aria-hidden="true" src="./svg/down-arrow.svg" alt=""/>
     </a>
   </header>
 
-
-  <!-- Barre de navigation (apparaît une fois le hero passé) -->
-  <nav class="nav" aria-label="Navigation principale">
-    <a class="nav__brand" href="#accueil">Alex Labuz</a>
-    <ul class="nav__links">
-      <li><a href="#apropos">À propos</a></li>
-      <li><a href="#experience">Expérience</a></li>
-      <li><a href="#competences">Compétences</a></li>
-      <li><a href="#formations">Formations</a></li>
-      <li><a href="#projets">Projets</a></li>
-    </ul>
-  </nav>
-
-
   <main>
 
-    <!-- =====================================================================
-         2. À PROPOS
-         ===================================================================== -->
-    <section class="section" id="apropos">
-      <h2 class="section__title">À propos</h2>
-
-      <div class="about">
-        <div class="about__text">
-          <p>
-            Diplômé d'un titre EISI (Expert en Informatique et Systèmes d'Information),
-            je travaille depuis 5 ans chez Logista Hometech, où j'ai également effectué mon alternance.
-            Je fais évoluer les applicatifs internes selon les besoins métiers du secteur de l'habitat.
-          </p>
-          <p>
-            Aujourd'hui, je souhaite relever un nouveau défi professionnel afin de découvrir
-            d'autres domaines d'activités.
-          </p>
-        </div>
+    <!-- ============ À PROPOS ============ -->
+    <section class="section" id="a-propos">
+      <h2>À propos</h2>
+      <div class="card c-violet">
+        <p>
+          Diplômé d'un titre EISI (Expert en Informatique et Systèmes d'Information),
+          je travaille depuis 5 ans chez Logista Hometech, où j'ai également effectué mon alternance.
+          Je fais évoluer les applicatifs internes selon les besoins métiers du secteur de l'habitat.
+        </p>
       </div>
     </section>
 
+    <!-- ============ EXPÉRIENCE ============ -->
+    <section class="section" id="experience">
+      <h2>Expérience</h2>
 
-    <!-- =====================================================================
-         3. EXPÉRIENCE PROFESSIONNELLE
-         Pour ajouter une expérience : copie un bloc <article class="timeline__item">
-         ===================================================================== -->
-    <section class="section section--alt" id="experience">
-      <h2 class="section__title">Expérience professionnelle</h2>
-
-      <div class="timeline">
-
-        <article class="timeline__item">
-          <p class="timeline__date">Depuis 2025</p>
-          <h3 class="timeline__title">Développeur MuleSoft</h3>
-          <p class="timeline__place">Logista Hometech</p>
+      <div class="cards">
+        <!-- ▼ MODÈLE : copie tout le bloc <article> pour ajouter une expérience ▼ -->
+        <article class="card c-orange">
+          <span class="tag">Depuis 2025</span>
+          <h3>Développeur MuleSoft</h3>
+          <p class="meta">Logista Hometech</p>
           <ul>
             <li>Migration des flux de données de SSIS vers MuleSoft.</li>
-            <li>Création de flux pour connecter Salesforce à Sage X3, AWS, Talentsoft ou encore Sinch.</li>
-            <li>Participation à la mise en place du CI/CD avec notamment GitLab, Jenkins et SonarQube.</li>
+            <li>Création de flux connectant Salesforce à Sage X3, AWS, Talentsoft ou encore Sinch.</li>
+            <li>Participation à la mise en place du CI/CD (GitLab, Jenkins, SonarQube).</li>
           </ul>
         </article>
+        <!-- ▲ fin du modèle ▲ -->
 
-        <article class="timeline__item">
-          <p class="timeline__date">2021 – 2025</p>
-          <h3 class="timeline__title">Développeur applicatif</h3>
-          <p class="timeline__place">Logista Hometech</p>
+        <article class="card">
+          <span class="tag">2021 – 2025</span>
+          <h3>Développeur applicatif</h3>
+          <p class="meta">Logista Hometech</p>
           <ul>
-            <li>Maintien des services et applicatifs internes (WPF, C#, API REST).</li>
+            <li>Maintien des services et applicatifs internes : WPF, C#, API REST.</li>
             <li>Optimisation des applications de mobilité utilisées par les techniciens.</li>
           </ul>
         </article>
-
       </div>
     </section>
 
-
-    <!-- =====================================================================
-         4. COMPÉTENCES
-         Pour ajouter une catégorie : copie un bloc <div class="skill">
-         Pour ajouter une compétence : ajoute un <li> dans la liste
-         ===================================================================== -->
+    <!-- ============ COMPÉTENCES ============ -->
     <section class="section" id="competences">
-      <h2 class="section__title">Compétences</h2>
-
+      <h2>Compétences</h2>
       <div class="skills">
-
+        <!-- ▼ MODÈLE : copie un bloc <div class="skill"> ; une techno = un <li> ▼ -->
         <div class="skill">
           <h3>Web</h3>
-          <ul class="tags">
-            <li>Vue.js</li><li>Nuxt</li><li>Tailwind</li>
-          </ul>
+          <ul class="tags"><li>Vue.js</li><li>Nuxt</li><li>Tailwind</li></ul>
         </div>
+        <!-- ▲ fin du modèle ▲ -->
 
         <div class="skill">
           <h3>Backend</h3>
-          <ul class="tags">
-            <li>Node.js</li><li>Docker</li><li>REST API</li><li>.NET</li>
-          </ul>
+          <ul class="tags"><li>Node.js</li><li>Docker</li><li>REST API</li><li>.NET</li></ul>
         </div>
-
         <div class="skill">
           <h3>Base de données</h3>
-          <ul class="tags">
-            <li>PostgreSQL</li><li>SQL Server</li><li>MongoDB</li>
-          </ul>
+          <ul class="tags"><li>PostgreSQL</li><li>SQL Server</li><li>MongoDB</li></ul>
         </div>
-
-        <div class="skill">
-          <h3>Mobile</h3>
-          <ul class="tags">
-            <li>Android</li><li>Kotlin</li><li>Flutter</li>
-          </ul>
-        </div>
-
-        <div class="skill">
-          <h3>ESB</h3>
-          <ul class="tags">
-            <li>MuleSoft</li><li>AnyPoint</li>
-          </ul>
-        </div>
-
         <div class="skill">
           <h3>Cloud</h3>
-          <ul class="tags">
-            <li>Azure</li><li>GCP</li><li>PaaS</li><li>OVH</li>
-          </ul>
+          <ul class="tags"><li>Azure</li><li>GCP</li><li>PaaS</li><li>OVH</li></ul>
         </div>
-
         <div class="skill">
           <h3>DevOps</h3>
-          <ul class="tags">
-            <li>Jenkins</li><li>GitLab</li><li>Sonar</li>
-          </ul>
+          <ul class="tags"><li>Jenkins</li><li>GitLab</li><li>Sonar</li></ul>
         </div>
-
         <div class="skill">
           <h3>Scrum</h3>
-          <ul class="tags">
-            <li>Jira</li><li>Azure DevOps</li><li>Trello</li>
-          </ul>
+          <ul class="tags"><li>Jira</li><li>Azure DevOps</li><li>Trello</li></ul>
         </div>
-
+        <div class="skill">
+          <h3>Mobile</h3>
+          <ul class="tags"><li>Android</li><li>Kotlin</li><li>Flutter</li></ul>
+        </div>
+        <div class="skill">
+          <h3>ESB</h3>
+          <ul class="tags"><li>MuleSoft</li><li>AnyPoint</li></ul>
+        </div>
       </div>
     </section>
 
-
-    <!-- =====================================================================
-         5. FORMATIONS
-         ===================================================================== -->
-    <section class="section section--alt" id="formations">
-      <h2 class="section__title">Formations</h2>
-
-      <div class="timeline">
-
-        <article class="timeline__item">
-          <p class="timeline__date">2025</p>
-          <h3 class="timeline__title">Titre Expert informatique &amp; système d'information</h3>
-          <p class="timeline__place">EPSI – L'école d'ingénierie informatique</p>
-        </article>
-
-        <article class="timeline__item">
-          <p class="timeline__date">2022</p>
-          <h3 class="timeline__title">Titre Concepteur développeur d'application</h3>
-          <p class="timeline__place">EPSI – L'école d'ingénierie informatique</p>
-        </article>
-
-        <article class="timeline__item">
-          <p class="timeline__date">2021</p>
-          <h3 class="timeline__title">BTS Services informatiques aux organisations</h3>
-          <p class="timeline__place">Lycée Guy Mollet, Arras</p>
-        </article>
-
-      </div>
-    </section>
-
-
-    <!-- =====================================================================
-         6. PROJETS PERSONNELS
-         Pour ajouter un projet : copie un bloc <article class="project">
-         ===================================================================== -->
-    <section class="section" id="projets">
-      <h2 class="section__title">Projets personnels</h2>
-
-      <div class="projects">
-
-        <article class="project">
-          <div class="project__body">
-            <img class="project__image" src="./images/skyjoscore.png" alt="logo skyjo score">
-            <h3 class="project__title">Skyjo Score</h3>
-            <p>
-              Application de suivi des scores du jeu Skyjo avec synchronisation
-              en temps réel entre les joueurs (SSE).
-            </p>
-            <ul class="tags">
-              <li>PWA</li><li>TypeScript</li><li>Vue.js</li><li>SSE</li><li>Micro-service</li><li>Node.js</li>
-            </ul>
-            <!--<p class="project__note">En production : ~120 utilisateurs mensuels</p>-->
-            <a class="button" href="https://skyjoscore.allavi.fr/" target="_blank" rel="noopener">Voir le projet</a>
-          </div>
-        </article>
-
-        <article class="project">
-          <div class="project__body">
-            <img class="project__image" src="./images/powerfour.png" alt="logo powerfour">
-            <h3 class="project__title">Powerfour</h3>
-            <p>Jeu de puissance 4 en temps réel</p>
-            <ul class="tags">
-              <li>PWA</li><li>TypeScript</li><li>Vue.js</li><li>Firebase</li><li>Real-time database</li>
-            </ul>
-            <a class="button" href="https://powerfour.alexlabuz.fr/" target="_blank" rel="noopener">Voir le projet</a>
-          </div>
-        </article>
-
-        <article class="project">
-          <div class="project__body">
-            <img class="project__image" src="./images/tetromino.png" alt="logo tetromino">
-            <h3 class="project__title">Tetromino</h3>
-            <p>Jeu de Tetris en ligne</p>
-            <ul class="tags">
-              <li>PWA</li><li>TypeScript</li><li>Vue.js</li><li>Firebase</li><li>Firestore</li>
-            </ul>
-            <a class="button" href="https://tetromino.alexlabuz.fr/" target="_blank" rel="noopener">Voir le projet</a>
-          </div>
-        </article>
-        
-
-      </div>
-    </section>
-
-    <!-- =====================================================================
-         7. CENTRES D'INTÉRÊT
-         ===================================================================== -->
-    <section class="section section--alt" id="interets">
-      <h2 class="section__title">Centres d'intérêt</h2>
-      <ul class="tags tags--large">
-        <li>🎹 Piano</li>
-        <li>🎭 Théâtre</li>
-        <li>🧗 Escalade</li>
+    <!-- ============ FORMATIONS ============ -->
+    <section class="section" id="formations">
+      <h2>Formations</h2>
+      <ul class="timeline">
+        <!-- ▼ MODÈLE : copie un <li> ▼ -->
+        <li>
+          <span class="year">2025</span>
+          <div><h3>Titre Expert informatique &amp; système d'information</h3><p>EPSI – L'école d'ingénierie informatique</p></div>
+        </li>
+        <!-- ▲ fin du modèle ▲ -->
+        <li>
+          <span class="year">2022</span>
+          <div><h3>Titre Concepteur développeur d'application</h3><p>EPSI – L'école d'ingénierie informatique</p></div>
+        </li>
+        <li>
+          <span class="year">2021</span>
+          <div><h3>BTS Services informatiques aux organisations</h3><p>Lycée Guy Mollet, Arras</p></div>
+        </li>
       </ul>
     </section>
 
+    <!-- ============ PROJETS PERSONNELS ============ -->
+    <section class="section" id="projets">
+      <h2>Projets personnels</h2>
 
+      <!-- Plusieurs cartes par ligne sur grand écran, ajustement automatique -->
+      <div class="cards projects">
+        <!-- ▼ MODÈLE : copie tout le bloc <article> pour ajouter un projet ▼ -->
+        <article class="card project c-orange">
+          <div class="project-head">
+            <img class="icon" src="./images/skyjoscore.png" alt="">
+            <h3>Skyjo Score</h3>
+          </div>
+          <p>Suivi des scores du jeu Skyjo avec synchronisation en temps réel entre les joueurs (SSE).</p>
+          <p class="stack">PWA / TypeScript / Vue.js / SSE / micro-service / Node.js</p>
+          <a class="btn" href="https://allavi.fr" data-umami-event="click" data-umami-event-type="skyjoscore">Voir le projet</a>
+        </article>
+        <!-- ▲ fin du modèle ▲ -->
+
+        <article class="card project c-vert">
+          <div class="project-head">
+            <img class="icon" src="./images/powerfour.png" alt="">
+            <h3>PowerFour</h3>
+          </div>
+          <p>Jeu de puissance 4 en temps réel</p>
+          <p class="stack">PWA / TypeScript / Vue.js / Firebase / Real-time database</p>
+          <a class="btn" href="https://powerfour.alexlabuz.fr/" data-umami-event="click" data-umami-event-type="powerfour">Voir le projet</a>
+        </article>
+
+        <article class="card project">
+          <div class="project-head">
+            <img class="icon" src="./images/tetromino.png" alt="">
+            <h3>Tetromino</h3>
+          </div>
+          <p>Jeu de Tetris en ligne</p>
+          <p class="stack">PWA / TypeScript / Vue.js / Firebase / Firestore</p>
+          <a class="btn" href="https://tetromino.alexlabuz.fr/" data-umami-event="click" data-umami-event-type="tetromino">Voir le projet</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ CENTRES D'INTÉRÊT ============ -->
+    <section class="section" id="interets">
+      <h2>Centres d'intérêt</h2>
+      <ul class="chips">
+        <!-- ▼ MODÈLE : copie un <li> ▼ -->
+        <li>Piano</li>
+        <!-- ▲ fin du modèle ▲ -->
+        <li>Théâtre</li>
+        <li>Escalade</li>
+      </ul>
+    </section>
   </main>
 
-
   <footer class="footer">
-    <p>© <span id="year">2026</span> Alex Labuz</p>
+    <p>© <span id="annee">2026</span> Alex Labuz</p>
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>
